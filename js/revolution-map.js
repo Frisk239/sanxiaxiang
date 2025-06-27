@@ -35,8 +35,8 @@ const revolutionEvents = [
     {
         id: 'changzheng',
         name: '红军长征',
-        coords: [25.89, 116.03],
-        icon: 'boot',
+        coords: [36.03, 103.82], // 延安
+        icon: 'route',
         routes: [
             [25.89, 116.03], // 瑞金
             [26.57, 106.71], // 遵义
