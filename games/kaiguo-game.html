@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>开国大典模拟</title>
+    <link rel="stylesheet" href="../css/game.css">
+    <style>
+        .ceremony-container {
+            position: relative;
+            width: 800px;
+            height: 500px;
+            background-image: url('../image/kaiguo-scene.png');
+            background-size: cover;
+            margin: 0 auto;
+        }
+        .ceremony-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .ceremony-btn {
+            padding: 0.5rem 1rem;
+            background-color: #9A1F1A;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .ceremony-progress {
+            background-color: rgba(248, 241, 229, 0.8);
+            padding: 1rem;
+            margin-top: 1rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>开国大典模拟</h1>
+        
+        <div class="game-area">
+            <div class="ceremony-container" id="ceremony-scene">
+                <!-- 场景元素将通过JavaScript动态生成 -->
+            </div>
+            
+            <div class="ceremony-controls">
+                <button class="ceremony-btn" id="prepare">筹备工作</button>
+                <button class="ceremony-btn" id="start">开始典礼</button>
+                <button class="ceremony-btn" id="speech">主席讲话</button>
+            </div>
+            
+            <div class="ceremony-progress">
+                <h3>典礼进度</h3>
+                <p>完成度: <span id="progress">0</span>%</p>
+            </div>
+        </div>
+
+        <div class="game-story">
+            <h3>历史背景</h3>
+            <p>模拟1949年开国大典的筹备和举行过程...</p>
+        </div>
+    </div>
+
+    <script src="../js/kaiguo-game.js"></script>
+</body>
+</html>
