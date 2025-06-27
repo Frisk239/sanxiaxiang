@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const navContainer = document.getElementById('nav-container');
     if (navContainer) {
-        fetch('../shared/nav.html')
+        fetch('./shared/nav.html')
             .then(response => {
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
