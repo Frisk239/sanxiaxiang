@@ -5,17 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>开国大典</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/events.css">
+    <link rel="stylesheet" href="../css/icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body>
-    <header>
-        <h1>开国大典</h1>
+<body class="event-page">
+<div id="nav-container"></div>
+    <div class="event-header">
+        <h1><i class="fas fa-flag kaiguo-icon"></i>开国大典</h1>
         <p>1949年</p>
-    </header>
+    </div>
 
-    <main>
-        <section class="event-detail">
-            <img src="../image/kaiguodadain.png" alt="开国大典">
-            <div class="content">
+    <main class="event-container">
+        <div class="event-content">
+            <div class="event-image-container">
+                <img src="../image/kaiguodadain.png" alt="开国大典" class="event-image">
+            </div>
+            <div class="event-details">
                 <h2>历史背景</h2>
                 <p>1949年10月1日，中华人民共和国中央人民政府成立典礼在北京天安门广场隆重举行...</p>
                 
@@ -25,10 +31,11 @@
                 <h2>历史意义</h2>
                 <p>标志着新民主主义革命的胜利，中国人民从此站起来了...</p>
             </div>
-        </section>
+        </div>
 
         <div class="game-section">
-            <a href="../games/kaiguo-game.html" class="game-button">开始开国大典模拟</a>
+            <a href="../games/kaiguo-game.html" class="game-btn">开始开国大典模拟</a>
+            <a href="../index.html" class="game-btn" style="margin-top: 15px;">返回首页</a>
         </div>
     </main>
 
