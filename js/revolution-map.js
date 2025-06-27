@@ -67,15 +67,23 @@ const revolutionEvents = [
 document.addEventListener('DOMContentLoaded', function() {
     const map = L.map('revolution-map').setView([35, 108], 5);
     
+    // 加载深色地图瓦片
+    const darkMap = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+        subdomains: 'abcd',
+        maxZoom: 19
+    }).addTo(map);
+
     // 加载中国地图GeoJSON
     fetch('china.json')
         .then(response => response.json())
         .then(data => {
             L.geoJSON(data, {
                 style: {
-                    color: '#666',
-                    weight: 1,
-                    fillOpacity: 0.1
+                    color: '#8B0000',
+                    weight: 1.5,
+                    fillColor: '#333333',
+                    fillOpacity: 0.3
                 }
             }).addTo(map);
             
@@ -91,8 +99,17 @@ function addRevolutionMarkers(map) {
         function createDynamicIcon() {
             const zoom = map.getZoom();
             const size = Math.max(20, 30 * Math.pow(1.2, zoom - 5));
+            const colors = {
+                'xinhai': '#D4AF37',
+                'wusi': '#9A1F1A',
+                'nanhu': '#9A1F1A',
+                'nanchang': '#9A1F1A',
+                'changzheng': '#9A1F1A',
+                'kangzhan': '#9A1F1A',
+                'kaiguo': '#2E8B57'
+            };
             return L.divIcon({
-                html: `<i class="fas fa-${event.icon}" style="color:#9A1F1A;font-size:${size}px;"></i>`,
+                html: `<i class="fas fa-${event.icon}" style="color:${colors[event.id]};font-size:${size}px;text-shadow:0 0 8px rgba(255,255,255,0.5);"></i>`,
                 className: 'custom-marker',
                 iconSize: [size, size]
             });
