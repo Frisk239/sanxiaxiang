@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>辛亥革命游戏</title>
+    <link rel="stylesheet" href="../css/game.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>辛亥革命战略决策</h1>
+        
+        <div class="game-area">
+            <canvas id="gameCanvas" width="800" height="500"></canvas>
+            <div class="game-controls">
+                <div class="resources">
+                    <h3>革命资源</h3>
+                    <p>兵力: <span id="troops">1000</span></p>
+                    <p>物资: <span id="supplies">500</span></p>
+                </div>
+                <div class="decisions">
+                    <h3>战略决策</h3>
+                    <button id="attackWuhan">进攻武汉</button>
+                    <button id="attackNanjing">进攻南京</button>
+                    <button id="recruit">招募新军</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-story">
+            <h3>历史背景</h3>
+            <p id="story-text">1911年，清朝统治摇摇欲坠，请做出战略决策推动革命...</p>
+        </div>
+    </div>
+
+    <script src="../js/xinhai-game.js"></script>
+</body>
+</html>

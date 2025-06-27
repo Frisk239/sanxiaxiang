@@ -1,0 +1,76 @@
+/* 基础样式 */
+body {
+    font-family: "Microsoft YaHei", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F8F1E5;
+    color: #333333;
+}
+
+header {
+    background: linear-gradient(to right, #9A1F1A, #C62828);
+    color: #D4AF37;
+    padding: 1rem;
+    text-align: center;
+}
+
+/* 时间轴样式 */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 20px;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background-color: #9A1F1A;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -2px;
+}
+
+/* 响应式设计 */
+@media screen and (max-width: 600px) {
+    .timeline::after {
+        left: 31px;
+    }
+}
+
+/* 事件详情页样式 */
+.event-detail {
+    display: flex;
+    flex-direction: column;
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+.event-detail img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.game-section {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.game-button {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: #9A1F1A;
+    color: #D4AF37;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.game-button:hover {
+    background-color: #C62828;
+}
