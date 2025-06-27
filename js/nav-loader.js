@@ -25,10 +25,10 @@ document.addEventListener('DOMContentLoaded', function() {
                             <a href="../index.html">首页</a>
                             <a href="../events/xinhai.html">辛亥革命</a>
                             <a href="../events/wusi.html">五四运动</a>
-                            <a href="../events/nanhu.html">南湖红船</a>
+                            <a href="../events/nanhu.html">中共一大</a>
                             <a href="../events/nanchang.html">南昌起义</a>
                             <a href="../events/changzheng.html">红军长征</a>
-                            <a href="../events/kangzhan.html">抗日战争</a>
+                            <a href="../events/kangzhan.html">抗战胜利</a>
                             <a href="../events/kaiguo.html">开国大典</a>
                         </div>
                     </nav>
