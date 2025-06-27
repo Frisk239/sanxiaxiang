@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>建党问答游戏</title>
+    <link rel="stylesheet" href="../css/game.css">
+    <style>
+        .question-container {
+            background-color: #F8F1E5;
+            padding: 1rem;
+            margin: 1rem 0;
+            border: 1px solid #9A1F1A;
+            border-radius: 4px;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        .option-btn {
+            padding: 0.5rem;
+            background-color: #D4AF37;
+            color: #2A363B;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .option-btn:hover {
+            background-color: #9A1F1A;
+            color: #F8F1E5;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>建党知识问答</h1>
+        
+        <div class="game-area">
+            <div class="question-container">
+                <h3 id="question-text">问题加载中...</h3>
+                <div class="options" id="options-container">
+                    <!-- 选项将通过JavaScript动态生成 -->
+                </div>
+            </div>
+            
+            <div class="progress">
+                <h3>答题进度</h3>
+                <p>正确率: <span id="accuracy">0</span>%</p>
+                <p>觉悟值: <span id="awareness">0</span>/100</p>
+            </div>
+        </div>
+
+        <div class="game-story">
+            <h3>历史背景</h3>
+            <p>通过回答问题了解中国共产党创建的历史...</p>
+        </div>
+    </div>
+
+    <script src="../js/nanhu-game.js"></script>
+</body>
+</html>
