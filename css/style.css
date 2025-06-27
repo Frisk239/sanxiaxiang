@@ -14,30 +14,38 @@ header {
     text-align: center;
 }
 
-/* 时间轴样式 */
-.timeline {
+/* 粒子系统页面样式 */
+header {
     position: relative;
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 0 20px;
+    z-index: 10;
 }
 
-.timeline::after {
-    content: '';
-    position: absolute;
-    width: 4px;
-    background-color: #9A1F1A;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    margin-left: -2px;
+header h1 {
+    font-size: 3rem;
+    text-shadow: 0 0 10px rgba(255, 50, 50, 0.8);
+    margin: 1rem 0;
+    color: #fff;
 }
 
 /* 响应式设计 */
-@media screen and (max-width: 600px) {
-    .timeline::after {
-        left: 31px;
+@media screen and (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
     }
+    
+    .event-label {
+        font-size: 1rem;
+    }
+}
+
+.event-area {
+    z-index: 5;
+    border-radius: 50%;
+    transition: all 0.3s;
+}
+
+.event-area:hover {
+    box-shadow: 0 0 20px rgba(255, 50, 50, 0.5);
 }
 
 /* 事件详情页样式 */
