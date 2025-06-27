@@ -14,17 +14,56 @@ header {
     text-align: center;
 }
 
-/* 粒子系统页面样式 */
-header {
-    position: relative;
-    z-index: 10;
+/* 地图页面样式 */
+#revolution-map {
+    height: 100vh;
+    width: 100%;
 }
 
-header h1 {
-    font-size: 3rem;
-    text-shadow: 0 0 10px rgba(255, 50, 50, 0.8);
-    margin: 1rem 0;
-    color: #fff;
+.custom-marker {
+    background: none;
+    border: none;
+}
+
+.event-card {
+    background: linear-gradient(135deg, rgba(154,31,26,0.9), rgba(198,40,40,0.9));
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+    min-width: 150px;
+}
+
+.event-card h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.2rem;
+}
+
+.event-card i {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.location-hint {
+    color: rgba(255,255,255,0.7);
+    font-size: 0.8rem;
+    margin: 5px 0;
+}
+
+.explore-btn {
+    background: #D4AF37;
+    color: #9A1F1A;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.explore-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
 }
 
 /* 响应式设计 */
@@ -33,52 +72,12 @@ header h1 {
         font-size: 2rem;
     }
     
-    .event-label {
-        font-size: 1rem;
+    .event-card {
+        min-width: 120px;
+        padding: 10px;
     }
-}
-
-.event-area {
-    z-index: 5;
-    border-radius: 50%;
-    transition: all 0.3s;
-}
-
-.event-area:hover {
-    box-shadow: 0 0 20px rgba(255, 50, 50, 0.5);
-}
-
-/* 事件详情页样式 */
-.event-detail {
-    display: flex;
-    flex-direction: column;
-    max-width: 900px;
-    margin: 2rem auto;
-    padding: 1rem;
-}
-
-.event-detail img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 1rem;
-}
-
-.game-section {
-    text-align: center;
-    margin: 2rem 0;
-}
-
-.game-button {
-    display: inline-block;
-    padding: 0.8rem 1.5rem;
-    background-color: #9A1F1A;
-    color: #D4AF37;
-    text-decoration: none;
-    border-radius: 4px;
-    font-weight: bold;
-    transition: background-color 0.3s;
-}
-
-.game-button:hover {
-    background-color: #C62828;
+    
+    .event-card i {
+        font-size: 1.5rem;
+    }
 }

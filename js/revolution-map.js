@@ -80,39 +80,61 @@ document.addEventListener('DOMContentLoaded', function() {
 // 添加革命事件标记
 function addRevolutionMarkers(map) {
     revolutionEvents.forEach(event => {
-        // 创建自定义图标
-        const icon = L.divIcon({
-            html: `<i class="fas fa-${event.icon}" style="color:#9A1F1A;font-size:24px;"></i>`,
-            className: 'custom-marker',
-            iconSize: [30, 30]
-        });
+        // 创建动态缩放图标
+        function createDynamicIcon() {
+            const zoom = map.getZoom();
+            const size = Math.max(20, 30 * Math.pow(1.2, zoom - 5));
+            return L.divIcon({
+                html: `<i class="fas fa-${event.icon}" style="color:#9A1F1A;font-size:${size}px;"></i>`,
+                className: 'custom-marker',
+                iconSize: [size, size]
+            });
+        }
         
         // 创建标记
-        const marker = L.marker(event.coords, { icon })
-            .addTo(map)
-            .on('mouseover', () => {
-                // 显示路线动画
-                if(event.routes.length > 0) {
-                    const polyline = L.polyline(event.routes, {
-                        color: '#9A1F1A',
-                        weight: 3,
-                        dashArray: '10, 10'
-                    }).addTo(map);
-                    
-                    // 动画效果
-                    const length = polyline._path.getTotalLength();
-                    polyline._path.style.strokeDashoffset = length;
-                    polyline._path.style.strokeDasharray = length;
-                    
-                    gsap.to(polyline._path, {
-                        strokeDashoffset: 0,
-                        duration: 3,
-                        onComplete: () => {
-                            map.removeLayer(polyline);
-                        }
-                    });
-                }
-            });
+        const marker = L.marker(event.coords, { 
+            icon: createDynamicIcon()
+        }).addTo(map);
+        
+        // 地图缩放时更新图标大小
+        map.on('zoomend', function() {
+            marker.setIcon(createDynamicIcon());
+        });
+        
+        // 调整北京地区事件位置避免重叠
+        if(['wusi', 'kangzhan', 'kaiguo'].includes(event.id)) {
+            const displayPositions = {
+                'wusi': [40.5, 117.0],  // 东北方向(距离x4)
+                'kangzhan': [40.0, 116.0], // 西北方向
+                'kaiguo': [39.3, 117.0]  // 东南方向(距离x4)
+            };
+            
+            // 设置显示位置
+            marker.setLatLng(displayPositions[event.id]);
+            
+            // 添加实际位置连线
+            const line = L.polyline([event.coords, displayPositions[event.id]], {
+                color: '#9A1F1A',
+                weight: 1,
+                dashArray: '5,5',
+                opacity: 0.6
+            }).addTo(map);
+            
+            // 绑定移除事件
+            marker.on('remove', () => map.removeLayer(line));
+            
+            // 在卡片中添加位置说明
+            marker.bindPopup(`
+                <div class="event-card">
+                    <h3>${event.name}</h3>
+                    <i class="fas fa-${event.icon}"></i>
+                    <p class="location-hint"><small>※ 图标位置已调整</small></p>
+                    <button class="explore-btn" onclick="window.location.href='events/${event.id}.html'">
+                        点击探索
+                    </button>
+                </div>
+            `);
+        }
         
         // 绑定弹出窗口
         marker.bindPopup(`
