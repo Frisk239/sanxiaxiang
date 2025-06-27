@@ -140,11 +140,6 @@ function addRevolutionMarkers(map) {
                 <h3>${event.name}</h3>
                 <i class="fas fa-${event.icon}"></i>
                 <p class="event-description">${event.description}</p>`;
-                
-        if(['wusi', 'kangzhan', 'kaiguo'].includes(event.id)) {
-            popupContent += `
-                <p class="location-hint"><small>※ 图标位置已调整</small></p>`;
-        }
         
         popupContent += `
                 <button class="explore-btn" onclick="window.location.href='events/${event.id}.html'">
