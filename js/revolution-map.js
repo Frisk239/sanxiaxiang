@@ -5,28 +5,32 @@ const revolutionEvents = [
         name: '辛亥革命',
         coords: [30.52, 114.31],
         icon: 'flag',
-        routes: []
+        routes: [],
+        description: '1911年推翻清朝统治的革命'
     },
     {
         id: 'wusi',
         name: '五四运动',
         coords: [39.90, 116.40],
         icon: 'users',
-        routes: []
+        routes: [],
+        description: '1919年反帝反封建的爱国运动'
     },
     {
         id: 'nanhu',
         name: '南湖红船',
         coords: [30.77, 120.76],
         icon: 'ship',
-        routes: []
+        routes: [],
+        description: '1921年中国共产党成立的象征'
     },
     {
         id: 'nanchang',
         name: '南昌起义',
         coords: [28.68, 115.89],
         icon: 'gun',
-        routes: []
+        routes: [],
+        description: '1927年中国共产党领导的武装起义'
     },
     {
         id: 'changzheng',
@@ -38,21 +42,24 @@ const revolutionEvents = [
             [26.57, 106.71], // 遵义
             [30.67, 104.06], // 成都
             [36.03, 103.82]  // 延安
-        ]
+        ],
+        description: '1934-1936年红军战略转移'
     },
     {
         id: 'kangzhan',
         name: '抗日战争',
         coords: [39.85, 116.22],
         icon: 'crosshairs',
-        routes: []
+        routes: [],
+        description: '1937-1945年中国抗击日本侵略'
     },
     {
         id: 'kaiguo',
         name: '开国大典',
         coords: [39.91, 116.40],
         icon: 'star',
-        routes: []
+        routes: [],
+        description: '1949年中华人民共和国成立'
     }
 ];
 
@@ -123,28 +130,28 @@ function addRevolutionMarkers(map) {
             // 绑定移除事件
             marker.on('remove', () => map.removeLayer(line));
             
-            // 在卡片中添加位置说明
-            marker.bindPopup(`
-                <div class="event-card">
-                    <h3>${event.name}</h3>
-                    <i class="fas fa-${event.icon}"></i>
-                    <p class="location-hint"><small>※ 图标位置已调整</small></p>
-                    <button class="explore-btn" onclick="window.location.href='events/${event.id}.html'">
-                        点击探索
-                    </button>
-                </div>
-            `);
+            // 添加位置说明标记
+            marker.locationHint = true;
         }
         
         // 绑定弹出窗口
-        marker.bindPopup(`
+        let popupContent = `
             <div class="event-card">
                 <h3>${event.name}</h3>
                 <i class="fas fa-${event.icon}"></i>
+                <p class="event-description">${event.description}</p>`;
+                
+        if(['wusi', 'kangzhan', 'kaiguo'].includes(event.id)) {
+            popupContent += `
+                <p class="location-hint"><small>※ 图标位置已调整</small></p>`;
+        }
+        
+        popupContent += `
                 <button class="explore-btn" onclick="window.location.href='events/${event.id}.html'">
                     点击探索
                 </button>
-            </div>
-        `);
+            </div>`;
+            
+        marker.bindPopup(popupContent);
     });
 }
