@@ -1,0 +1,36 @@
+/* 事件图标样式 */
+.event-icon {
+    font-size: 1.5rem;
+    margin-right: 10px;
+    color: #8B0000;
+}
+
+/* 辛亥革命 */
+.xinhai-icon {
+    color: #8B0000;
+}
+
+/* 五四运动 */
+.wusi-icon {
+    color: #D4AF37;
+}
+
+/* 南昌起义 */
+.nanchang-icon {
+    color: #8B0000;
+}
+
+/* 红军长征 */
+.changzheng-icon {
+    color: #8B0000;
+}
+
+/* 抗日战争 */
+.kangzhan-icon {
+    color: #8B0000;
+}
+
+/* 开国大典 */
+.kaiguo-icon {
+    color: #D4AF37;
+}
