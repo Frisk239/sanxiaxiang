@@ -18,7 +18,7 @@ const revolutionEvents = [
     },
     {
         id: 'nanhu',
-        name: '南湖红船',
+        name: '中共一大',
         coords: [30.77, 120.76],
         icon: 'ship',
         routes: [],
@@ -47,7 +47,7 @@ const revolutionEvents = [
     },
     {
         id: 'kangzhan',
-        name: '抗日战争',
+        name: '抗战胜利',
         coords: [39.85, 116.22],
         icon: 'crosshairs',
         routes: [],
