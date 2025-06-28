@@ -25,7 +25,6 @@
 ```
 ├── css/            # 样式文件
 ├── events/         # 历史事件页面
-├── games/          # 互动游戏
 ├── image/          # 图片资源
 └── js/             # JavaScript脚本
 ```
