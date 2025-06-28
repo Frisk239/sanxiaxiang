@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>抗战战役游戏</title>
+    <link rel="stylesheet" href="../css/game.css">
+    <style>
+        .battle-map {
+            position: relative;
+            width: 800px;
+            height: 500px;
+            background-image: url('../image/kangzhan-map.png');
+            background-size: cover;
+            margin: 0 auto;
+        }
+        .battle-controls {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .battle-btn {
+            padding: 0.5rem;
+            background-color: #9A1F1A;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .battle-status {
+            background-color: #F8F1E5;
+            padding: 1rem;
+            border: 1px solid #2A363B;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>抗日战争战役指挥</h1>
+        
+        <div class="game-area">
+            <div class="battle-map" id="war-map">
+                <!-- 战场元素将通过JavaScript动态生成 -->
+            </div>
+            
+            <div class="battle-controls">
+                <div>
+                    <h3>战术指令</h3>
+                    <button class="battle-btn" id="defend">防御作战</button>
+                    <button class="battle-btn" id="attack">主动进攻</button>
+                    <button class="battle-btn" id="retreat">战略转移</button>
+                </div>
+                <div class="battle-status">
+                    <h3>战场态势</h3>
+                    <p>我军兵力: <span id="our-troops">50000</span></p>
+                    <p>敌军兵力: <span id="enemy-troops">80000</span></p>
+                    <p>已胜战役: <span id="won-battles">0</span>/3</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-story">
+            <h3>历史背景</h3>
+            <p>指挥关键战役，抗击日本侵略者...</p>
+        </div>
+    </div>
+
+    <script src="../js/kangzhan-game.js"></script>
+</body>
+</html>
