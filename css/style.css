@@ -105,18 +105,36 @@ body {
 
 /* 响应式设计 */
 @media screen and (max-width: 768px) {
-    .main-nav {
-        flex-direction: column;
-        padding: 10px 0;
-    }
-    .nav-logo, .nav-links {
-        width: 100%;
-        text-align: center;
-    }
-    .nav-links {
-        flex-wrap: wrap;
-        margin-top: 10px;
-    }
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #8B0000;
+    color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    font-family: 'Noto Serif SC', serif;
+}
+
+.nav-logo {
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.nav-links a {
+    margin: 0 15px;
+    font-size: 1rem;
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #FFD700;
+}
     .nav-links a {
         padding: 5px 8px;
         font-size: 0.9rem;
