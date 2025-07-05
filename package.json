@@ -18,7 +18,6 @@
   },
   "homepage": "https://github.com/Frisk239/sanxiaxiang#readme",
   "dependencies": {
-    "express": "^5.1.0",
-    "sqlite3": "^5.1.7"
+    "express": "^5.1.0"
   }
 }
